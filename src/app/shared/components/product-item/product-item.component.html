@@ -14,7 +14,7 @@
 
   <div class='flex justify-between items-center mt-4'>
     <span class='text-gray-800 text-xs'>{{ product.category.name }}</span>
-    <span class='badge'>
+    <span class='badge' id='price-badge'>
       <span *ngIf='!refreshingPrice'>{{ product.price | currency }}</span>
       <span *ngIf='refreshingPrice'>...</span>
     </span>

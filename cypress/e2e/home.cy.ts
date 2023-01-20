@@ -1,9 +1,11 @@
+import { CategoriesMock } from '../../src/app/core/mocks/category.mock'
+
 describe('Home', () => {
 
   beforeEach(() => {
     cy.intercept(
       { method: 'get', url: /categories/ },
-      { fixture: 'categories.json' }
+      { body: CategoriesMock }
     ).as('getCategories')
   })
 
