@@ -1,0 +1,22 @@
+<div class='card' *ngIf='product'>
+  <div
+    class='bg-cover bg-center h-28 -mt-4 -mx-4 bg-gray-100 h-full'
+    [style.background-image]='product.images.length ? "url(" + product.images[0] + ")" : null'>
+  </div>
+
+  <h2 class='mt-2 text-lg'>
+    {{ product.title }}
+  </h2>
+
+  <p class='text-sm'>
+    {{ (product.description || '') | truncate:65:'...' }}
+  </p>
+
+  <div class='flex justify-between items-center mt-4'>
+    <span class='text-gray-800 text-xs'>{{ product.category.name }}</span>
+    <span class='badge'>
+      <span *ngIf='!refreshingPrice'>{{ product.price | currency }}</span>
+      <span *ngIf='refreshingPrice'>...</span>
+    </span>
+  </div>
+</div>

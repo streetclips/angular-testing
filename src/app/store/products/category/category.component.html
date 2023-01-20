@@ -1,0 +1,10 @@
+<h1 id='category-name' class='text-6xl font-bold'>
+  {{ category.name }}
+</h1>
+
+<app-product-list
+  [products]='products'
+  [pageSize]='pageSize'
+  [currentPage]='currentPage'
+  (paginate)='onPaginate($event)'
+/>

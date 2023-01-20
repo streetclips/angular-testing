@@ -1,0 +1,10 @@
+<form class='flex flex-col gap-4' [formGroup]='formGroup' (ngSubmit)='update()'>
+  <input type='text' formControlName='name' placeholder='Name'>
+  <input type='email' formControlName='email' placeholder='Email'>
+  <input type='password' formControlName='password' placeholder='Change password'>
+  <button type='submit' [disabled]='!formGroup.valid'>Save changes</button>
+</form>
+
+<app-alert *ngIf='errored' type='error'>
+  {{ errorMessage }}
+</app-alert>

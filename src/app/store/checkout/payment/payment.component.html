@@ -1,0 +1,24 @@
+<!-- checkout payment form -->
+<form class='flex flex-col gap-4' [formGroup]='formGroup' (ngSubmit)='pay()'>
+  <input formControlName='cardNumber' />
+
+  <div class='flex justify-items-stretch gap-4'>
+    <select formControlName='expirationMonth'>
+      <option *ngFor='let month of months' [value]='month'>{{ month }}</option>
+    </select>
+
+    <select formControlName='expirationYear'>
+      <option *ngFor='let year of years' [value]='year'>{{ year }}</option>
+    </select>
+
+    <input formControlName='cvv' />
+  </div>
+
+  <button type='submit'>
+    Pay {{ totals.total | currency }}
+  </button>
+</form>
+
+<app-alert *ngIf='errored' type='error'>
+  There was an error in your payment information. Please try again.
+</app-alert>

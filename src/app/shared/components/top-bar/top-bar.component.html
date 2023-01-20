@@ -1,0 +1,22 @@
+<div class='py-3 px-4 bg-blue-700 text-white'>
+  <div class='flex items-center justify-between'>
+
+    <div class='flex items-center'>
+      <div class='flex-shrink-0 cursor-pointer' routerLink='/'>
+        <img class='h-8 w-8' src='https://via.placeholder.com/30' alt='logo'>
+      </div>
+      <div class='ml-3'>
+        <p class='text-sm font-medium'>Angular Testing</p>
+      </div>
+    </div>
+
+    <div class='ml-3 relative flex gap-4'>
+      <button id='profile-btn' *ngIf='authService.loginChange | async' routerLink='/user/profile'>Profile</button>
+      <button id='cart-btn' *ngIf='authService.loginChange | async' routerLink='/checkout/cart'>Cart</button>
+
+      <button id='logout-btn' *ngIf='authService.loginChange | async' (click)='logout()'>Logout</button>
+      <button id='login-btn' *ngIf='(authService.loginChange | async) === false' routerLink='/auth/login'>Login</button>
+    </div>
+  </div>
+
+</div>

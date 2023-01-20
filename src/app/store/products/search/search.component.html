@@ -1,0 +1,13 @@
+<app-search-bar
+  [title]='title'
+  [priceRange]='priceRange'
+  [category]='category'
+  (search)='onSearch($event)'
+/>
+
+<app-product-list
+  [products]='products'
+  [pageSize]='pageSize'
+  [currentPage]='currentPage'
+  (paginate)='onPaginate($event)'
+/>

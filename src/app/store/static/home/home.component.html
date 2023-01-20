@@ -1,0 +1,24 @@
+<app-search-bar
+  [showPriceRange]='false'
+  [showCategory]='false'
+  (search)='search($event)'
+/>
+
+<h1 class='text-2xl font-bold my-6'>Categories</h1>
+
+<div class='grid grid-cols-4 gap-6'>
+  <div
+    class='card hover:scale-105 cursor-pointer transition transform duration-300 ease-out h-full'
+    *ngFor='let category of categories'
+    [routerLink]="['/category', category.id, slugify(category.name)]"
+  >
+    <div
+      class='bg-cover bg-center h-28 -mt-4 -mx-4 bg-gray-100 h-full'
+      [style.background-image]='category.image ? "url(" + category.image + ")" : null'>
+    </div>
+
+    <h2 class='mt-2 text-lg'>
+      {{ category.name }}
+    </h2>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div>
+  <div
+    *ngFor='let cartItem of cartItems'
+    class='mb-2 pb-2 border-b-2 border-gray-200 flex gap-4 cursor-pointer mb-4'
+    [routerLink]='["/product", cartItem.product.id]'
+  >
+
+    <div>
+      <img [src]='cartItem.product.images[0]' class='w-20 h-20 object-cover' [alt]='cartItem.product.title' />
+    </div>
+
+    <div class='flex-1'>
+      <div class='text-lg font-bold flex justify-between hover:text-blue-400'>
+        <span>{{ cartItem.quantity }} x {{ cartItem.product.title }}</span>
+        <span>{{ cartItem.quantity * cartItem.product.price | currency }}</span>
+      </div>
+      <p>
+        {{ cartItem.product.description }}
+      </p>
+    </div>
+
+  </div>
+
+  <div class='card'>
+    <div class='flex justify-between'>
+      <span class='text-md'>Tax</span>
+      <span class='text-md'>{{ totals.tax | currency }}</span>
+    </div>
+
+    <div class='flex justify-between'>
+      <span class='text-md'>Subtotal</span>
+      <span class='text-md'>{{ totals.subtotal | currency }}</span>
+    </div>
+
+    <div class='flex justify-between'>
+      <span class='text-lg font-bold'>Total</span>
+      <span class='text-lg font-bold'>{{ totals.total | currency }}</span>
+    </div>
+  </div>
+</div>
+
+<div class='flex justify-end my-4' *ngIf='totals.total'>
+  <a id='payment-btn' routerLink='/checkout/payment' class='button text-2xl px-8'>Place order</a>
+</div>

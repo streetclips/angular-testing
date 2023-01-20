@@ -1,0 +1,19 @@
+<div class='relative bg-gray-100 w-full rounded-2xl'>
+  <div
+    class='bg-contain bg-no-repeat bg-center w-full'
+    [style.background-image]="images[selectedIndex] && 'url(' + images[selectedIndex] + ')'"
+    [style.height]='"350px"'
+  >
+  </div>
+
+  <div class='flex gap-2 justify-center items-center absolute bottom-2 w-full'>
+    <img
+      *ngFor="let image of images; let i = index; trackBy: trackByFn"
+      [ngClass]='selectedIndex === i ? "border-2 border-blue-500" : "border-2 border-gray-200"'
+      (click)='selectImage(i)'
+      class='rounded-2xl w-16 h-16 cursor-pointer bg-white'
+      [src]="image"
+      [alt]='image'
+    />
+  </div>
+</div>

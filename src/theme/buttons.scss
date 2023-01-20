@@ -1,0 +1,12 @@
+button, button[type=submit], button[type=reset], button[type=button], .button {
+  @apply
+  appearance-none
+  rounded-2xl
+  shadow-sm
+  bg-sky-600 hover:border-sky-800 focus:border-sky-800
+  text-white
+  border-sky-600 hover:border-sky-800 focus:border-sky-800
+  border-2
+  py-1 px-3
+  disabled:opacity-50
+}

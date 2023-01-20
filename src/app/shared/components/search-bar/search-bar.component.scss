@@ -1,0 +1,13 @@
+#search-bar {
+  @apply flex;
+  input {
+    @apply rounded-r-none flex-1;
+  }
+  button {
+    @apply rounded-l-none;
+  }
+  select {
+    @apply rounded-none h-full;
+    max-width: 120px;
+  }
+}

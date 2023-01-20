@@ -1,0 +1,9 @@
+<form class='flex flex-col gap-4' [formGroup]='formGroup' (ngSubmit)='login()'>
+  <input formControlName='email' type='text' placeholder='Email' />
+  <input formControlName='password' type='password' placeholder='Password' />
+  <button type='submit' [disabled]='!formGroup.valid'>Login</button>
+</form>
+
+<app-alert *ngIf='errored' type='error'>
+  There was an error logging in.
+</app-alert>

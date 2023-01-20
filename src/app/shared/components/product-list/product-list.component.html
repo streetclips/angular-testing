@@ -1,0 +1,28 @@
+<div class='grid grid-cols-4 gap-6 my-4'>
+  <app-product-item
+    class='hover:scale-105 cursor-pointer transition transform duration-300 ease-out h-full'
+    *ngFor='let product of products; trackBy:trackByFn'
+    [product]='product'
+    [routerLink]="['/product', product.id]"
+  />
+</div>
+
+<div class='flex gap-4'>
+  <button
+    class='px-4'
+    (click)="onPaginatePrevious()"
+    [disabled]='!canGoPrevious()'>
+    ‹
+  </button>
+
+  <span class='text-lg'>
+    {{ currentPage }}
+  </span>
+
+  <button
+    class='px-4'
+    (click)="onPaginateNext()"
+    [disabled]='!canGoNext()'>
+    ›
+  </button>
+</div>
