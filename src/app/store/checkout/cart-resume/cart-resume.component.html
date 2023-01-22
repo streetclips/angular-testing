@@ -1,7 +1,7 @@
 <div>
   <div
     *ngFor='let cartItem of cartItems'
-    class='mb-2 pb-2 border-b-2 border-gray-200 flex gap-4 cursor-pointer mb-4'
+    class='cart-item mb-2 pb-2 border-b-2 border-gray-200 flex gap-4 cursor-pointer mb-4'
     [routerLink]='["/product", cartItem.product.id]'
   >
 

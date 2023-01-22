@@ -3,6 +3,8 @@ import { ProductBMock } from '../../src/app/core/mocks/product.mock'
 
 describe('Category', () => {
 
+  const productsMock = [ProductBMock, ProductBMock]
+
   beforeEach(() => {
     cy.intercept(
       { method: 'get', url: /categories/ },
@@ -11,7 +13,7 @@ describe('Category', () => {
 
     cy.intercept(
       { method: 'get', url: /products\?/ },
-      { body: [ProductBMock, ProductBMock] }
+      { body: productsMock }
     ).as('getProducts')
 
     cy.intercept(
@@ -20,7 +22,7 @@ describe('Category', () => {
     ).as('getProductPrice')
   })
 
-  it.only('Show category name', () => {
+  it('Show category name', () => {
     cy.visit('/category/1/slug')
     cy.wait('@getCategory')
     cy.wait('@getProducts')
@@ -28,21 +30,21 @@ describe('Category', () => {
     cy.get('h1#category-name').and('include.text', CategoryBMock.name)
   })
 
-  it.only('Get and shows products', () => {
+  it('Get and shows products', () => {
     cy.visit('/category/1/slug')
     cy.wait('@getCategory')
     cy.wait('@getProducts')
 
-    cy.get('.card').and('have.length', 2)
+    cy.get('.product-item').and('have.length', productsMock.length)
   })
 
-  it.only('Refresh product prices if category is 2', () => {
+  it('Refresh product prices if category is 2', () => {
     cy.visit('/category/2/slug')
     cy.wait('@getCategory')
     cy.wait('@getProducts')
     cy.wait('@getProductPrice')
 
-    cy.get('.card').first().find('#price-badge').and('include.text', '123')
+    cy.get('.product-item').first().find('.price-badge').and('include.text', '123')
   })
 
 })

@@ -13,14 +13,14 @@ describe('Home', () => {
     cy.visit('/')
     cy.wait('@getCategories')
 
-    cy.get('.card').and('have.length', 2)
+    cy.get('.category-item').and('have.length', 2)
   })
 
   it('Navigate to category', () => {
     cy.visit('/')
     cy.wait('@getCategories')
 
-    cy.get('.card').first().click()
+    cy.get('.category-item').first().click()
     cy.url().should('include', '/category/1')
   })
 

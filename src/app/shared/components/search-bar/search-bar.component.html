@@ -1,14 +1,14 @@
 <form id='search-bar' [formGroup]='formGroup'>
-  <input formControlName='title' placeholder='Type to search...' />
+  <input formControlName='title' name='title' placeholder='Type to search...' />
 
-  <select *ngIf='showPriceRange' formControlName='priceRange'>
+  <select *ngIf='showPriceRange' formControlName='priceRange' name='priceRange'>
     <option value=''>-- Price --</option>
     <option *ngFor='let range of priceRangeOptions' [value]='range.toString()'>
       {{ range[0] | currency }} - {{ range[1] | currency }}
     </option>
   </select>
 
-  <select *ngIf='showCategory' formControlName='category'>
+  <select *ngIf='showCategory' formControlName='category' name='category'>
     <option [value]='null'>-- Category --</option>
     <option *ngFor='let cat of categories' [value]='cat.id'>
       {{ cat.name }}

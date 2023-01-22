@@ -8,7 +8,7 @@
 
 <div class='grid grid-cols-4 gap-6'>
   <div
-    class='card hover:scale-105 cursor-pointer transition transform duration-300 ease-out h-full'
+    class='category-item card hover:scale-105 cursor-pointer transition transform duration-300 ease-out h-full'
     *ngFor='let category of categories'
     [routerLink]="['/category', category.id, slugify(category.name)]"
   >

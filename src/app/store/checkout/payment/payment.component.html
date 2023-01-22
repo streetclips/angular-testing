@@ -1,20 +1,21 @@
-<!-- checkout payment form -->
 <form class='flex flex-col gap-4' [formGroup]='formGroup' (ngSubmit)='pay()'>
-  <input formControlName='cardNumber' />
+  <input formControlName='cardNumber' name='cardNumber' placeholder='Card Number' />
 
   <div class='flex justify-items-stretch gap-4'>
-    <select formControlName='expirationMonth'>
+    <select formControlName='expirationMonth' name='expirationMonth'>
+      <option value=''>Month</option>
       <option *ngFor='let month of months' [value]='month'>{{ month }}</option>
     </select>
 
-    <select formControlName='expirationYear'>
+    <select formControlName='expirationYear' name='expirationYear'>
+      <option value=''>Year</option>
       <option *ngFor='let year of years' [value]='year'>{{ year }}</option>
     </select>
 
-    <input formControlName='cvv' />
+    <input formControlName='cvv' placeholder='CVV' name='cvv' />
   </div>
 
-  <button type='submit'>
+  <button type='submit' id='pay-btn'>
     Pay {{ totals.total | currency }}
   </button>
 </form>
