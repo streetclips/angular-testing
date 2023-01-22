@@ -26,3 +26,12 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `npm run serve:ssr` and `ng e2e` to execute the end-to-end tests via Cypress.
+
+## Test user login
+
+You can use the following test user to login:
+
+```
+email: john@mail.com
+password: changeme
+```
